@@ -14700,7 +14700,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Here I'm looking insdie my current directory to pull the housing data</span>
@@ -14826,6 +14826,133 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <pre>(100, 82)</pre>
 </div>
 
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 100 entries, 0 to 99
+Data columns (total 82 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   Unnamed: 0     100 non-null    int64  
+ 1   Id             100 non-null    int64  
+ 2   MSSubClass     100 non-null    int64  
+ 3   MSZoning       100 non-null    object 
+ 4   LotFrontage    86 non-null     float64
+ 5   LotArea        100 non-null    int64  
+ 6   Street         100 non-null    object 
+ 7   Alley          6 non-null      object 
+ 8   LotShape       100 non-null    object 
+ 9   LandContour    100 non-null    object 
+ 10  Utilities      100 non-null    object 
+ 11  LotConfig      100 non-null    object 
+ 12  LandSlope      100 non-null    object 
+ 13  Neighborhood   100 non-null    object 
+ 14  Condition1     100 non-null    object 
+ 15  Condition2     100 non-null    object 
+ 16  BldgType       100 non-null    object 
+ 17  HouseStyle     100 non-null    object 
+ 18  OverallQual    100 non-null    int64  
+ 19  OverallCond    100 non-null    int64  
+ 20  YearBuilt      100 non-null    int64  
+ 21  YearRemodAdd   100 non-null    int64  
+ 22  RoofStyle      100 non-null    object 
+ 23  RoofMatl       100 non-null    object 
+ 24  Exterior1st    100 non-null    object 
+ 25  Exterior2nd    100 non-null    object 
+ 26  MasVnrType     100 non-null    object 
+ 27  MasVnrArea     100 non-null    float64
+ 28  ExterQual      100 non-null    object 
+ 29  ExterCond      100 non-null    object 
+ 30  Foundation     100 non-null    object 
+ 31  BsmtQual       97 non-null     object 
+ 32  BsmtCond       97 non-null     object 
+ 33  BsmtExposure   97 non-null     object 
+ 34  BsmtFinType1   97 non-null     object 
+ 35  BsmtFinSF1     100 non-null    int64  
+ 36  BsmtFinType2   97 non-null     object 
+ 37  BsmtFinSF2     100 non-null    int64  
+ 38  BsmtUnfSF      100 non-null    int64  
+ 39  TotalBsmtSF    100 non-null    int64  
+ 40  Heating        100 non-null    object 
+ 41  HeatingQC      100 non-null    object 
+ 42  CentralAir     100 non-null    object 
+ 43  Electrical     100 non-null    object 
+ 44  1stFlrSF       100 non-null    int64  
+ 45  2ndFlrSF       100 non-null    int64  
+ 46  LowQualFinSF   100 non-null    int64  
+ 47  GrLivArea      100 non-null    int64  
+ 48  BsmtFullBath   100 non-null    int64  
+ 49  BsmtHalfBath   100 non-null    int64  
+ 50  FullBath       100 non-null    int64  
+ 51  HalfBath       100 non-null    int64  
+ 52  BedroomAbvGr   100 non-null    int64  
+ 53  KitchenAbvGr   100 non-null    int64  
+ 54  KitchenQual    100 non-null    object 
+ 55  TotRmsAbvGrd   100 non-null    int64  
+ 56  Functional     100 non-null    object 
+ 57  Fireplaces     100 non-null    int64  
+ 58  FireplaceQu    46 non-null     object 
+ 59  GarageType     94 non-null     object 
+ 60  GarageYrBlt    94 non-null     float64
+ 61  GarageFinish   94 non-null     object 
+ 62  GarageCars     100 non-null    int64  
+ 63  GarageArea     100 non-null    int64  
+ 64  GarageQual     94 non-null     object 
+ 65  GarageCond     94 non-null     object 
+ 66  PavedDrive     100 non-null    object 
+ 67  WoodDeckSF     100 non-null    int64  
+ 68  OpenPorchSF    100 non-null    int64  
+ 69  EnclosedPorch  100 non-null    int64  
+ 70  3SsnPorch      100 non-null    int64  
+ 71  ScreenPorch    100 non-null    int64  
+ 72  PoolArea       100 non-null    int64  
+ 73  PoolQC         0 non-null      float64
+ 74  Fence          23 non-null     object 
+ 75  MiscFeature    9 non-null      object 
+ 76  MiscVal        100 non-null    int64  
+ 77  MoSold         100 non-null    int64  
+ 78  YrSold         100 non-null    int64  
+ 79  SaleType       100 non-null    object 
+ 80  SaleCondition  100 non-null    object 
+ 81  SalePrice      100 non-null    int64  
+dtypes: float64(4), int64(36), object(42)
+memory usage: 64.2+ KB
+</pre>
+</div>
 </div>
 
 </div>
@@ -15084,7 +15211,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>From above, we can see there are specific neighborhoods that have a higher sales price. This could be due to the location of the property, size, or <br> number of bathrooms. Stonebr has the highest counts with sales price around <strong>$400,000</strong> amd Edwars has the lowest counts with a sales price of less than <strong>$100,000</strong></p>
+<p>From above, we can see there are specific neighborhoods that have a higher sales price. This could be due to the location of the property, size, or <br> number of bathrooms. Stonebr has the highest counts with sales price around <strong>$400,000</strong> amd Edwards has the lowest counts with a sales price of less than <strong>$100,000</strong></p>
 
 </div>
 </div>
@@ -16494,7 +16621,7 @@ class="
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>jupyter nbconvert  Module_7_Final_Project_Template.ipynb --to html
@@ -16520,7 +16647,7 @@ class="
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
 <pre>[NbConvertApp] Converting notebook Module_7_Final_Project_Template.ipynb to html
-[NbConvertApp] Writing 1108932 bytes to Module_7_Final_Project_Template.html
+[NbConvertApp] Writing 1105718 bytes to Module_7_Final_Project_Template.html
 </pre>
 </div>
 </div>
