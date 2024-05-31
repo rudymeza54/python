@@ -9,6 +9,8 @@ import csv
 import yaml
 
 
+# READING IN DATA FROM LOCAL DIRECTORY
+
 print('Reading mrts data\n reshaping now...')
 
 dir = os.getcwd()
@@ -16,6 +18,8 @@ dir = os.getcwd()
 file = ''.join(os.path.join(dir,'mrtsales.xlsx'))
 df = pd.read_excel(file, sheet_name = None, skiprows = 4,nrows = 66)
 
+# CONVERT DF DICTIONARY TO PANDAS DF
+# ONLY EXTRACT COLUMNS WITH DATES
 
 main = pd.concat(df.values(), ignore_index=True)
 
@@ -24,6 +28,7 @@ main.drop(columns = ['CY CUM','PY CUM'], inplace=True)
 cols = [ele for ele in main.columns if '20' in ele or '19' in ele]
 
 
+# RESHAPE DATA INTO A LONGER FORMAT
 
 new = pd.melt(main,id_vars = ['Unnamed: 0','Unnamed: 1'], value_vars=cols, var_name = 'month_year', value_name = 'sales')
 new = new[new['sales'].notna()]
