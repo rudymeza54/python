@@ -1,3 +1,4 @@
-.csv
-.xlsx
-.yaml
+*.csv
+*.xlsx
+*.yaml
+*.txt

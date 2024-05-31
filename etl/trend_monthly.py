@@ -376,7 +376,7 @@ df_rolling_m = df_rolling_m.iloc[::2]
 
 
 
-# Plots
+# Plots for rolling
 
 
 plt.rcParams.update({'figure.figsize': (8,6)})
