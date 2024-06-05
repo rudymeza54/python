@@ -63,13 +63,12 @@ mse_df = pd.DataFrame({
 })
 
 
-mse_df['MSE'] = mse_df['MSE'].apply(lambda x: '%.9f' % x)
+mse_df['MSE'] = mse_df['MSE'].apply(lambda x: '%.2f' % x)
+
+mse_df = mse_df.sort_values(by = 'MSE', ascending = True)
 
 plt.figure(figsize = (10,8))
 plt.plot(mse_df['Alpha'],mse_df['MSE'], marker = 'o')
-plt.xscale('log')
-plt.xlabel('Alpha')
-plt.ylabel('Mean Squarred Error')
 plt.legend()
 plt.show()
 
@@ -82,3 +81,35 @@ y_pred = best_model.predict(X_test)
 best_model.score(X_train,y_train)
 
 best_model.score(X_test,y_test)
+
+min = mse_df['MSE'].min()
+
+mse_df[mse_df['MSE'] == min]
+
+best_model = grid_search.best_estimator_
+
+preprocess = best_model.named_steps['preprocessor']
+
+model = best_model.named_steps['model']
+
+preprocessor.fit(X_train)
+
+num_features = numerical_features
+cat_features = preprocessor.named_transformers_['cat'].get_feature_names_out(categorical_Features)
+
+features = np.concatenate([num_features, cat_features])
+
+coefs = model.coef_
+
+feature_importance = pd.DataFrame({
+    "Features": features,
+    "Coefficient": coefs
+})
+
+important_features = feature_importance[feature_importance['Coefficient']!=0]
+important_features = important_features.sort_values(by = 'Coefficient', ascending = False)
+
+
+plt.barh(important_features['Features'],important_features['Coefficient'])
+
+plt.show()
