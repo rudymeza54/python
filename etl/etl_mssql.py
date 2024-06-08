@@ -31,10 +31,16 @@ cols = [ele for ele in main.columns if '20' in ele or '19' in ele]
 new = pd.melt(main,id_vars = ['Unnamed: 0','Unnamed: 1'], value_vars=cols, var_name = 'month_year', value_name = 'sales')
 new = new[new['sales'].notna()]
 new = new[new['sales']!='(S)']
+new = new[new['sales']!='(NA)']
 
 new.rename(columns = {'Unnamed: 0':'naics_code','Unnamed: 1':'business'}, inplace=True)
 new['month_year'] = new['month_year'].str.replace('.','',regex=False).str.replace('(p)','',regex=False)
 new['month_year'] = new['month_year'].apply(lambda x: '01'+' '+ str(x))
+
+
+
+
+
 
 new.to_csv('output.csv')
 
@@ -124,3 +130,20 @@ if row == x:
       print(f'Rows Match on MRTSData and SQL TABLE')
 else:
       print(f'Rows do not match')
+
+
+
+file = ''.join(os.path.join(dir,'output.csv'))
+
+
+df = pd.read_csv(file)
+
+
+df['month_year'] = pd.to_datetime(df['month_year'], format = '%d %b %Y')
+df['month_year'] = df['month_year'] .dt.strftime('%m-%d-%Y').str.strip()
+
+df['sales'] = df['sales'].astype(float)
+
+df.to_csv('output.csv', index=False)
+
+print(f'Script complete')
