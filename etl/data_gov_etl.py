@@ -5,6 +5,9 @@ import json
 import re
 import yaml
 from sqlalchemy import create_engine
+import colorama
+from colorama import Fore, Style, Back
+
 
 # DEFINE SCRAPING FUNCTION FOR WEBSITE URL
 
@@ -20,36 +23,35 @@ def scrape(url):
 
     return soup
 
-# DEFINE URL AND INTIALIZE SCRAPING URL
+# DEFINE URL AND INTIALIZE SCRAPING URL'S FIRST 10 PAGES
 
+main_url = []
+pages = [num for num in range(1,50)]
 
-url = f'https://catalog.data.gov/dataset?q=&sort=views_recent+desc'
+for num in pages:
+    urls = f'https://catalog.data.gov/dataset?q=&sort=views_recent+desc&page={num}'
+    main_url.append(urls)
 
-
-
-soup = scrape(url)
+    
 
 
 # PULL ALL DATASETS IN H3 TAG
 
-page = soup.find_all('h3')
-
-ds= []
 links = []
-for i in page:
-    x = i.text
-    x = x.strip()
-    x = x.split("\n\n")[0]
-    ds.append(x)
 
+for url in main_url:
+    
+    soup = scrape(url) 
 
-for i in page:
-    a_tag = i.find('a')
-    if a_tag:
-        h = a_tag.get('href')
-        if h:
-            x ='https://catalog.data.gov/'+''.join(h)
-            links.append(x)
+    page = soup.find_all('h3')
+
+    for i in page:
+        a_tag = i.find('a')
+        if a_tag:
+            h = a_tag.get('href')
+            if h:
+                x ='https://catalog.data.gov/'+''.join(h)
+                links.append(x)
 
 
 # APPLY CRAWLER TO DIFFERENT URL'S AND EXTRACT DATA INTO DICTIONARIES, LISTED DF'S, AND MASTER DF
@@ -67,8 +69,10 @@ for i in links:
     file_extension = [item.text.strip() for item in x.find_all('a',{'itemprop':'contentUrl'})]
     file_extension = [re.findall(r'File(\w+)', item) for item in file_extension]
     file_extension = [''.join(item) for item in file_extension]
+    link = i
     out={
         "title":title,
+        "link": link,
         "description": description,
         "date": date,
         "ext": file_extension
