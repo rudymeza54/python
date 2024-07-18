@@ -1,0 +1,16 @@
+body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:calc(1.5em + 0.25vw);
+    font-weight:(300+bold);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    margin-left:20%;
+    margin-right:20%} 
+    
+
+h1, h2, h3, h4 { color: #003B62; }
+
+
+h1 {
+    text-align: center;
+}
